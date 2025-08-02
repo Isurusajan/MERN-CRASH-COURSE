@@ -1,57 +1,8 @@
-import { Container, Text, VStack, SimpleGrid, Box, Heading, HStack, Image, useColorModeValue, IconButton } from '@chakra-ui/react';
+import { Container, Text, VStack, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { useProductStore } from '../store/product';
-import { EditIcon, DeleteIcon } from '@chakra-ui/icons';
-
-// ProductCard component - MAKE SURE THIS IS INCLUDED
-const ProductCard = ({ product }) => {
-    const textColor = useColorModeValue('gray.600', 'whiteAlpha.200');
-    const bg = useColorModeValue('white', 'gray.800');
-    
-    return (
-        <Box 
-            shadow={'lg'}
-            rounded={'lg'}
-            overflow={'hidden'}
-            transition={'all 0.3s'}
-            _hover={{ transform: "translateY(-5px)", shadow: 'xl' }}
-            bg={bg}
-        >
-            <Image
-                src={product.image} 
-                alt={product.name} 
-                h={48} 
-                w={'full'} 
-                objectFit={'cover'}
-            />
-
-            <Box p={4}>
-                <Heading as={'h3'} size={'md'} mb={2}>
-                    {product.name}
-                </Heading>
-
-                <Text fontWeight={'bold'} fontSize={'xl'} color={textColor} mb={2}>
-                    ${product.price}
-                </Text>
-
-                <HStack spacing={2}>
-                    <IconButton 
-                        icon={<EditIcon />} 
-                        colorScheme='blue'
-                        onClick={() => {}}
-                    />
-                    
-                    <IconButton 
-                        icon={<DeleteIcon />} 
-                        colorScheme='red'
-                        onClick={() => {}}
-                    />
-                </HStack> 
-            </Box>
-        </Box>
-    );
-};
+import ProductCard from '../components/ProductCard'; // Import your ProductCard component
 
 const HomePage = () => {
   const { fetchProducts, products } = useProductStore(); 
