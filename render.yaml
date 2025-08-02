@@ -2,6 +2,7 @@ services:
   - type: web
     name: mern-crash-course
     env: node
+    runtime: node
     buildCommand: npm run build
     startCommand: npm start
     envVars:
